@@ -1,0 +1,232 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Climate+Crisis:YEAR@1979&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist:ital,wght@0,100..900;1,100..900&family=Great+Vibes&family=Ingrid+Darling&family=Inika:wght@400;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poetsen+One&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.nav{
+    position: fixed;
+    z-index: 100;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 850px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.navtext{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 550;
+    margin-left: 45px;
+    text-shadow: 1px 1px 10px rgba(39, 39, 39, 0.795);
+    color: rgb(41, 51, 14);
+}
+
+.navtext:hover{
+    color: rgb(243, 252, 129);
+    text-shadow: 1px 1px 10px rgb(145, 145, 145);
+    cursor: pointer;
+    font-size: 15.2 px;
+}
+
+.Box{
+  margin: 0;
+  padding: 0;
+   box-sizing: border-box;
+}
+
+.firstPage{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coat{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(24, 24, 24, 0.521);
+}
+
+.centerimg{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.centerimg img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  height: 45%;
+  box-shadow: 0 40px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(68, 68, 68, 0.3);
+}
+
+.line1{
+  position: absolute;
+  width: 20%;
+  height: 3px;
+  background-color: rgb(232, 243, 131);
+  top: 25%;
+  left: 36%;
+}
+
+.line2{
+  position: absolute;
+  width: 3px;
+  height: 30%;
+  background-color: rgb(232, 243, 131);
+  top: 25%;
+  left: 36%;
+}
+
+.line3{
+  position: absolute;
+  width: 20%;
+  height: 3px;
+  background-color: rgb(232, 243, 131);
+  top: 75%;
+  right: 36%;
+}
+
+.line4{
+  position: absolute;
+  width: 3px;
+  height: 30%;
+  background-color: rgb(232, 243, 131);
+  bottom: 25%;
+  right: 36%;
+}
+
+.header{
+  position: absolute;
+  top: 25%;
+  left: 13%;
+  color: rgb(229, 231, 204);
+  font-size: 90px;
+  
+}
+
+.header h6{
+  line-height: 0.8;
+}
+
+.subheader{
+  position: absolute;
+  top: 43%;
+  left: 69%;
+  color: rgb(229, 231, 204);
+  font-size: 17px;
+}
+
+.button{
+  position: absolute;
+  top: 59%;
+  left: 69%;
+  transform: translateY(-50%);
+  padding: 10px 20px;
+  background-color: rgb(232, 243, 131);
+  color: rgb(71, 71, 71);
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button:hover{
+  background-color: rgb(250, 253, 212);
+  color: rgb(71, 71, 71);
+  }
+
+.secondPage{
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 235);
+  }
+
+.left{
+  position: absolute;
+  width: 52%;
+  height: 60%;
+  background-color: rgb(255, 255, 254);
+  left: 0;
+  border: 1px solid rgba(68, 68, 68, 0.3);
+}
+
+.right{
+  position: absolute;
+  width: 45%;
+  height: 60%;
+  background-color: rgb(255, 255, 254);
+  right: 0;
+  border: 1px solid rgba(68, 68, 68, 0.3);
+}
+
+.right img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.left h6{
+  position: absolute;
+  top: 1%;
+  left: 10%;
+  color: rgb(41, 51, 14);
+  font-size: 30px;
+}
+
+.left p{
+  margin-top: 40px;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  color: rgb(41, 51, 14);
+  font-size: 18px;
+  color: rgb(73, 75, 67);
+}
