@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Climate+Crisis:YEAR@1979&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist:ital,wght@0,100..900;1,100..900&family=Great+Vibes&family=Ingrid+Darling&family=Inika:wght@400;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poetsen+One&display=swap');
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -11,20 +15,21 @@ html, body {
   scroll-behavior: smooth;
 }
 
+/* ---------- Nav ---------- */
+
 .nav{
     position: fixed;
     z-index: 100;
-    top: 30px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 850px;
-    height: 50px;
+    width: min(850px, 92vw);
+    min-height: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px;
-    box-sizing: border-box;
+    padding: 10px 24px;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -50,37 +55,35 @@ html, body {
   background: rgb(252, 252, 249);
   color: rgb(41, 51, 14);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
 }
 
 .brand-name{
   font-family: 'Fraunces', serif;
   font-weight: 600;
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   color: rgb(41, 51, 14);
   text-shadow: 1px 1px 10px rgba(39, 39, 39, 0.795);
+  white-space: nowrap;
 }
 
 .nav-links{
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 26px;
 }
 
 .navtext{
     position: relative;
     font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
+    font-size: clamp(13px, 1.4vw, 15px);
     font-weight: 550;
-    margin-left: 30px;
     text-shadow: 1px 1px 10px rgba(39, 39, 39, 0.795);
     color: rgb(41, 51, 14);
     cursor: pointer;
     z-index: 1;
     transition: color 0.25s ease, text-shadow 0.25s ease;
-}
-
-.navtext:first-child{
-  margin-left: 0;
 }
 
 .navtext:hover{
@@ -104,19 +107,70 @@ html, body {
   box-shadow: 0 2px 10px rgba(232, 243, 131, 0.6);
 }
 
+.menu-toggle{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 26px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-toggle span{
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: rgb(41, 51, 14);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px){
+  .menu-toggle{ display: flex; }
+
+  .nav-links{
+    display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-links.open{ display: flex; }
+
+  .navtext{ width: 100%; }
+}
+
 .Box{
   margin: 0;
   padding: 0;
-   box-sizing: border-box;
 }
+
+/* ---------- Hero ---------- */
 
 .firstPage{
   margin: 0;
   padding: 0;
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100svh;
+  height: auto;
   display: flex;
+  overflow: hidden;
 }
 
 img{
@@ -139,11 +193,8 @@ img{
 
 .centerimg{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
+  inset: 0;
+  z-index: 1;
 }
 
 .centerimg img{
@@ -151,10 +202,11 @@ img{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 25%;
-  height: 45%;
+  width: clamp(160px, 26vw, 340px);
+  height: clamp(220px, 40vh, 420px);
   box-shadow: 0 40px 32px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(68, 68, 68, 0.3);
+  border-radius: 6px;
   transition: box-shadow 0.4s ease;
 }
 
@@ -170,6 +222,7 @@ img{
   top: 25%;
   left: 36%;
   opacity: 0;
+  z-index: 1;
 }
 
 .line2{
@@ -180,6 +233,7 @@ img{
   top: 25%;
   left: 36%;
   opacity: 0;
+  z-index: 1;
 }
 
 .line3{
@@ -190,6 +244,7 @@ img{
   top: 75%;
   right: 36%;
   opacity: 0;
+  z-index: 1;
 }
 
 .line4{
@@ -200,39 +255,61 @@ img{
   bottom: 25%;
   right: 36%;
   opacity: 0;
+  z-index: 1;
+}
+
+@media (max-width: 900px){
+  .line1, .line2, .line3, .line4{ display: none; }
+}
+
+.hero-content{
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 110px 8% 60px;
 }
 
 .header{
-  position: absolute;
-  top: 25%;
-  left: 13%;
   color: rgb(229, 231, 204);
-  font-size: 90px;
+  font-size: clamp(32px, 6vw, 90px);
   font-family: 'Fraunces', serif;
   font-weight: 480;
   opacity: 0;
+  max-width: 620px;
 }
 
 .header h6{
-  line-height: 0.8;
+  line-height: 1.05;
   margin: 0;
 }
 
+.hero-info{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 420px;
+}
+
 .subheader{
-  position: absolute;
-  top: 43%;
-  left: 69%;
   color: rgb(229, 231, 204);
-  font-size: 17px;
+  font-size: clamp(13px, 1.6vw, 17px);
+  line-height: 1.6;
   opacity: 0;
 }
 
+.subheader p{
+  margin: 0;
+}
+
 .button{
-  position: absolute;
-  top: 59%;
-  left: 69%;
-  transform: translateY(-50%);
-  padding: 10px 20px;
+  align-self: flex-start;
+  padding: 12px 22px;
   background-color: rgb(232, 243, 131);
   color: rgb(71, 71, 71);
   font-size: 15px;
@@ -248,7 +325,7 @@ img{
 .button:hover{
   background-color: rgb(250, 253, 212);
   color: rgb(71, 71, 71);
-  }
+}
 
 .button.booked{
   animation: pulseGlow 0.9s ease;
@@ -260,7 +337,6 @@ img{
   100%{ box-shadow: 0 0 0 rgba(232, 243, 131, 0); }
 }
 
-/* Hero entrance: a single staggered fade-in, no positions are touched */
 @keyframes heroFade{
   from{ opacity: 0; }
   to{ opacity: 1; }
@@ -274,33 +350,62 @@ img{
 .firstPage.loaded .subheader{ animation: heroFade 0.9s ease forwards; animation-delay: 0.4s; }
 .firstPage.loaded .button{ animation: heroFade 0.7s ease forwards; animation-delay: 0.65s; }
 
+@media (max-width: 900px){
+  .hero-content{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 130px 6% 60px;
+    gap: 24px;
+  }
+
+  .header{ max-width: 100%; }
+
+  .hero-info{
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .button{ align-self: center; }
+
+  .centerimg img{
+    width: clamp(140px, 50vw, 220px);
+    height: clamp(180px, 30vh, 260px);
+  }
+}
+
+/* ---------- About ---------- */
+
 .secondPage{
   position: relative;
   width: 100%;
-  height: 80vh;
+  min-height: 80vh;
+  height: auto;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  gap: 40px;
+  padding: 90px 6%;
   background-color: rgb(252, 252, 249);
-  }
+}
 
 .left{
-  position: absolute;
-  width: 45%;
-  height: 60%;
-  background-color: transparent;
-  left: 0;
+  position: relative;
+  flex: 1 1 420px;
+  max-width: 520px;
 }
 
 .right{
-  position: absolute;
-  width: 45%;
-  height: 60%;
+  position: relative;
+  flex: 1 1 380px;
+  max-width: 480px;
+  aspect-ratio: 4 / 3;
   background-color: rgb(255, 255, 254);
-  right: 5%;
   border: 1px solid rgba(68, 68, 68, 0.3);
   box-shadow: 0 40px 32px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
   transition: box-shadow 0.4s ease, transform 0.4s ease;
 }
 
@@ -311,144 +416,116 @@ img{
 
 .right img{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.left h6{
-  position: absolute;
-  top: 1%;
-  left: 10%;
-  color: rgb(41, 51, 14);
-  font-size: 40px;
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  margin-top: 40px;
-  line-height: 0.8;
-  margin-left: 40px;
-}
-
 .left h5{
-  position: absolute;
-  top: 1%;
-  left: 10%;
   color: rgb(41, 51, 14);
-  font-size: 15px;
+  font-size: clamp(13px, 1.4vw, 15px);
   font-family: 'Montserrat', sans-serif;
   font-weight: 750;
-  margin-top: 20px;
-  line-height: 0.8;
-  margin-left: 40px;
+  margin: 0 0 14px 0;
+}
+
+.left h6{
+  color: rgb(41, 51, 14);
+  font-size: clamp(26px, 4vw, 40px);
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 0 0 22px 0;
 }
 
 .left p{
-  margin-top: 40px;
-  position: absolute;
-  top: 25%;
-  left: 10%;
-  color: rgb(41, 51, 14);
-  font-size: 18px;
   color: rgb(73, 75, 67);
+  font-size: clamp(14px, 1.6vw, 18px);
   font-family: 'Montserrat', sans-serif;
-  margin-left: 40px;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
 }
+
+.left p:last-child{ margin-bottom: 0; }
+
+@media (max-width: 900px){
+  .secondPage{
+    flex-direction: column;
+    padding: 60px 6%;
+  }
+  .right{
+    order: -1;
+    width: 100%;
+    max-width: 100%;
+  }
+  .left{ max-width: 100%; }
+}
+
+/* ---------- Places ---------- */
 
 .thirdPage{
   position: relative;
   width: 100%;
-  height: 80vh;
+  min-height: 80vh;
+  height: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 90px 6% 70px;
   background-color: rgb(245, 245, 245);
 }
 
 .heading{
-  position: absolute;
   width: 100%;
-  height: 20%;
-  background-color: transparent;
-  top: 0;
-  left: 0;
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .heading h5{
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
   color: rgb(41, 51, 14);
-  font-size: 15px;
+  font-size: clamp(13px, 1.4vw, 15px);
   font-family: 'Montserrat', sans-serif;
   font-weight: 750;
+  margin: 0 0 10px 0;
 }
+
 .heading h6{
-  position: absolute;
-  top: -25%;
-  left: 50%;
-  transform: translateX(-50%);
   color: rgb(41, 51, 14);
-  font-size: 40px;
+  font-size: clamp(26px, 4vw, 40px);
   font-family: 'Fraunces', serif;
   font-weight: 600;
+  margin: 0 0 10px 0;
 }
+
 .heading p{
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgb(41, 51, 14);  
-}
-
-
-
-.subheader button{
-  position: relative;
-  margin: 0 10px;
-  padding: 10px 20px;
-  background-color: rgb(232, 243, 131);
-  color: rgb(71, 71, 71);
-  font-size: 15px;
-  font-weight: bold;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.subheader button:hover{
-  background-color: rgb(250, 253, 212);
-  color: rgb(71, 71, 71);
+  color: rgb(73, 75, 67);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(13px, 1.4vw, 15px);
+  margin: 0;
 }
 
 .cards{
-  position: absolute;
   width: 100%;
-  height: 70%;
-  background-color: transparent;
-  top: 20%;
-  left: 0;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: stretch;
   justify-content: center;
-  border-radius: 10px;
+  gap: 24px;
 }
 
 .card{
   position: relative;
-  width: 30%;
-  height: 80%;
+  width: min(340px, 100%);
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
   background-color: rgb(255, 255, 254);
-  margin: 0 10px;
   border: 1px solid rgba(68, 68, 68, 0.3);
   box-shadow: 0 40px 32px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
+  overflow: hidden;
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s ease;
@@ -469,27 +546,23 @@ img{
 }
 
 .card img{
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 66%;
+  height: 200px;
   object-fit: cover;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 
 .card-content{
-  position: absolute;
-  top: 66%;
-  left: 0;
-  width: 100%;
-  padding: 12px 20px;
-  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  padding: 16px 20px 20px;
 }
 
 .card-content h6{
-  margin: 0 0 5px 0;
+  margin: 0;
   font-family: 'Fraunces', serif;
   font-weight: 600;
   font-size: 17px;
@@ -505,7 +578,8 @@ img{
 }
 
 .card-book-btn{
-  margin-top: 10px;
+  margin-top: auto;
+  align-self: flex-start;
   padding: 7px 16px;
   background: rgb(41, 51, 14);
   color: rgb(252, 252, 249);
@@ -526,12 +600,12 @@ img{
   transform: scale(0.96);
 }
 
-/* Footer */
+/* ---------- Footer ---------- */
+
 .footer{
   position: relative;
   width: 100%;
-  padding: 70px 8% 30px;
-  box-sizing: border-box;
+  padding: clamp(40px, 8vw, 70px) 6% 30px;
   background: linear-gradient(135deg, rgb(238, 240, 250), rgb(245, 248, 244));
 }
 
@@ -648,7 +722,8 @@ img{
   color: rgb(120, 123, 114);
 }
 
-/* Booking modal */
+/* ---------- Booking modal ---------- */
+
 .modal-overlay{
   position: fixed;
   inset: 0;
@@ -659,7 +734,6 @@ img{
   align-items: center;
   justify-content: center;
   padding: 20px;
-  box-sizing: border-box;
   animation: overlayIn 0.2s ease;
 }
 
@@ -677,7 +751,6 @@ img{
   background: rgb(255, 255, 254);
   border-radius: 16px;
   padding: 34px 30px 28px;
-  box-sizing: border-box;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
   animation: modalIn 0.25s cubic-bezier(0.2, 0.8, 0.3, 1);
 }
@@ -761,7 +834,7 @@ img{
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   resize: none;
-  box-sizing: border-box;
+  width: 100%;
 }
 
 .modal-form input:focus,
@@ -811,4 +884,15 @@ img{
   font-size: 14px;
   line-height: 1.6;
   color: rgb(95, 98, 90);
+}
+
+@media (max-width: 480px){
+  .modal{
+    padding: 26px 20px 22px;
+    border-radius: 14px;
+  }
+  .modal-row{
+    flex-direction: column;
+    gap: 14px;
+  }
 }
