@@ -1,19 +1,22 @@
-# React + Vite
+Project Title: StayNest
+Student Name: Buraga, Kenneth S.
+Section: BSIT 3D - G2
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Website Description: A cozy staycation booking platform that helps you discover and book beautiful places wherever you go. Find the perfect space to relax, unwind, and create memorable moments, all in one place.
 
-Currently, two official plugins are available:
+Features: View and Book places
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+useState() Features:
+1. current section of the page "navigation"
+2. book and load of the place
+3. modal form and etc.
 
-## React Compiler
+useEffect() Features:
+1. navigation buttons
+2. animations
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Technologies Used: 
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+Challenges Encountered: Time management
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+How I Solved Them: Using helper such as ai.
